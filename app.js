@@ -70,11 +70,11 @@ app.get('/male', function(req, res){
 
 app.get('/male/:msg', function(req,res) {
 				var newMsg = new Msg();
-				newMsg = JSON.parse( JSON.stringify( {
+				newMsg.msg = JSON.parse( JSON.stringify( {
 									"gender" : 0
 									, "msg": req.param.msg
 									, "sent" : new Date()
-							})) ;
+							}));
 				newMsg.save( function(err) {
 					if(err) console.log("Error saving colour:" + err)
 				});		
