@@ -11,7 +11,10 @@ var express = require('express'),
 
 var	mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/writewall');
+var db = mongoose.connect('mongodb://localhost/writewall', function(err) {
+	if( err ) {	console.log(err); }
+	else { console.log("Successful connection"); }
+});
 
 var app = module.exports = express.createServer();
 
@@ -28,7 +31,7 @@ var msgSchema = new Schema({
   , time : Date
 }), Msg;
 
-var Msg = mongoose.model('Msg', msgSchema);
+var Msg = mongoose.model('Msg', msgSchema,'message');
 
 app.configure(function(){
   app.set('views', __dirname + '/views');
@@ -66,19 +69,18 @@ app.get('/male', function(req, res){
 });
 
 app.get('/male/:msg', function(req,res) {
-	
-						var newMsg = new Msg();
-						newMsg = JSON.parse( JSON.stringify( {
-											"gender" : 0
-											, "msg": req.param.msg
-											, "sent" : new Date()
-									})) ;
-						newMsg.save( function(err) {
-							if(err) console.log("Error saving colour:" + err)
-						});		
+				var newMsg = new Msg();
+				newMsg = JSON.parse( JSON.stringify( {
+									"gender" : 0
+									, "msg": req.param.msg
+									, "sent" : new Date()
+							})) ;
+				newMsg.save( function(err) {
+					if(err) console.log("Error saving colour:" + err)
+				});		
 		res.render('index', {
-			title:'You said this about a girl:',
-			msg: req.param.msg
+			title:'You said this about a girl:'
+			, msg: req.param.msg
 		});
 });
 
