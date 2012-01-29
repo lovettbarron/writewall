@@ -70,12 +70,16 @@ app.get('/male/:msg', function(req,res) {
 						var newMsg = new Msg();
 						newMsg = JSON.parse( JSON.stringify( {
 											"gender" : 0
-											, "msg": msg
+											, "msg": req.param.msg
 											, "sent" : new Date()
 									})) ;
 						newMsg.save( function(err) {
 							if(err) console.log("Error saving colour:" + err)
 						});		
+		res.render('index', {
+			title:'You said this about a girl:',
+			msg: req.param.msg
+		});
 });
 
 app.get('/female', function(req, res){
