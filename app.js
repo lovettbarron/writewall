@@ -81,7 +81,7 @@ app.get('/male/:msg', function(req,res) {
 app.get('/female', function(req, res){
 	var message = [];
 	Msg.find({'gender':'0'}, function(err, doc) {
-		if( doc2 !== undefined ) {
+		if( doc !== undefined ) {
 			for( var key in doc){
 			if( doc.hasOwnProperty(key) ) {
 					message.push(doc[key]);
