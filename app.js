@@ -80,6 +80,7 @@ app.get('/male/:msg', function(req,res) {
 				});		
 		res.render('index', {
 			title:'You said this about a girl:'
+			, gender: 'male'
 			, msg: req.param.msg
 		});
 });
