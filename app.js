@@ -108,7 +108,6 @@ app.get('/female', function(req, res){
   res.render('index', {
     title: 'writewall'
 		, gender: 'female'
-		, messages : message
 		}
 	);
 });
