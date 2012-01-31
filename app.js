@@ -68,9 +68,10 @@ app.get('/male', function(req, res){
   });
 });
 
-app.get('/male/:msg', function(req,res) {
+app.get('/male/say', function(req,res) {
 		var newMsg = new Msg();
 		console.log("this!" + JSON.stringify(req.param.msg) );
+
 		newMsg.msg = JSON.parse( JSON.stringify( {
 				"gender" : "0"
 				, "msg": JSON.stringify(req.param.msg)
@@ -86,7 +87,8 @@ app.get('/male/:msg', function(req,res) {
 			, gender: 'male'
 			, messages: { 'msg' : req.param.msg }
 		});
-});
+
+	});
 
 app.get('/female', function(req, res){
 	var message = [];
@@ -111,7 +113,7 @@ app.get('/female', function(req, res){
 	);
 });
 
-app.get('/female/:msg', function(req,res) {
+app.get('/female/say', function(req,res) {
 	
 });
 
@@ -121,15 +123,29 @@ console.log("Express server listening on port %d in %s mode", app.address().port
 
 //SOCKET LISTENING
 var io = io.listen(app);
+
 io.sockets.on('connection', function (socket) {
-		socket.emit('draw', colordata);
 
 		socket.on('msg', function (data) {	
-				colordata = data;
-				socket.broadcast.emit('colour', data );
-			  winston.log('info', data 	);
-				});
+			var newMsg = new Msg();
+			console.log("this!" + JSON.stringify(req.param.msg) );
+
+			newMsg.msg = JSON.parse( JSON.stringify( {
+					"gender" : "0"
+					, "msg": JSON.stringify(req.param.msg)
+					, "sent" : new Date()
+				}));
+
+			newMsg.save( function(err) {
+				if(err) console.log("Error saving: " + err)
+				socket.emit('success',data)
+				});		
+			});
+				
+
 	});
+
+	
 		
 	
 	io.sockets.on('disconnect', function() {
