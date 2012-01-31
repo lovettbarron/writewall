@@ -1,15 +1,11 @@
 h1= title
 p= gender
-p= messages
 
-- each message in messages
-	p= message.msg
+div#input
+	input(type='text' id='data')
+	input(type='button' id='datasend' value='send')
 
 script
 	$(document).ready( function() {
 		var gender = "#{gender}"
-	});	
-	
-div#input
-	input(type='text' id='data')
-	input(type='button' id='datasend' value='send')
+	});
