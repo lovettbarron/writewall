@@ -5,10 +5,6 @@ p= messages
 - each message in messages
 	p= message.msg
 
-
-div.board
-
-
 script
 	$(document).ready( function() {
 		var gender = "#{gender}"
@@ -16,5 +12,5 @@ script
 	
 div
 	div#input
-		input(id="data" style="width:200px;")
+		input(id="data")
 		input(type="button" id="datasend" value="send")
