@@ -84,7 +84,7 @@ app.get('/male/:msg', function(req,res) {
 		res.render('index', {
 			title:'You said this about a girl:'
 			, gender: 'male'
-			, msg: req.param.msg
+			, messages: { msg : req.param.msg }
 		});
 });
 
@@ -98,7 +98,7 @@ app.get('/female', function(req, res){
 					if( doc !== undefined ) {
 						for( var key in doc){
 						if( doc.hasOwnProperty(key) ) {
-					message.push(doc[key].msg);
+							message.push(doc[key].msg);
 							}
 						}
 					}
