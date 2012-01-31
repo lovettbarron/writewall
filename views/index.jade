@@ -1,5 +1,7 @@
 h1= title
 p= gender
+if(msg)
+	p= msg
 div.board
 
 
@@ -7,4 +9,3 @@ script
 	$(document).ready( function() {
 		var gender = {#gender}
 	});	
-canvas(id="draw")
