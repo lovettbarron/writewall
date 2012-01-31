@@ -72,7 +72,7 @@ app.get('/male/:msg', function(req,res) {
 		var newMsg = new Msg();
 
 		newMsg.msg = JSON.parse( JSON.stringify( {
-				"gender" : 0
+				"gender" : "0"
 				, "msg": JSON.stringify(req.param.msg)
 				, "sent" : new Date()
 			}));
@@ -90,11 +90,15 @@ app.get('/male/:msg', function(req,res) {
 
 app.get('/female', function(req, res){
 	var message = [];
-	Msg.find({'gender':'0'}, function(err, doc) {
-		if( doc !== undefined ) {
-			for( var key in doc){
-			if( doc.hasOwnProperty(key) ) {
-					message.push(doc[key]);
+	var query = Msg.find( {'gender': '0' } );
+	 query.sort( 'sent', -1 )
+			.limit(25)
+			.exec(function(err,doc) {
+					if(err) console.log("Err retrieving:" + err)
+					if( doc !== undefined ) {
+						for( var key in doc){
+						if( doc.hasOwnProperty(key) ) {
+					message.push(doc[key].msg);
 							}
 						}
 					}
