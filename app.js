@@ -70,7 +70,7 @@ app.get('/male', function(req, res){
 
 app.get('/male/:msg', function(req,res) {
 		var newMsg = new Msg();
-
+		console.log(req.param.msg);
 		newMsg.msg = JSON.parse( JSON.stringify( {
 				"gender" : "0"
 				, "msg": JSON.stringify(req.param.msg)
@@ -84,7 +84,7 @@ app.get('/male/:msg', function(req,res) {
 		res.render('index', {
 			title:'You said this about a girl:'
 			, gender: 'male'
-			, messages: { msg : req.param.msg }
+			, messages: { 'msg' : req.param.msg }
 		});
 });
 
