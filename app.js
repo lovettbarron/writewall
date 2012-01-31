@@ -70,7 +70,7 @@ app.get('/male', function(req, res){
 
 app.get('/male/:msg', function(req,res) {
 		var newMsg = new Msg();
-		console.log(req.param.msg);
+		console.log("this!" + JSON.stringify(req.param.msg) );
 		newMsg.msg = JSON.parse( JSON.stringify( {
 				"gender" : "0"
 				, "msg": JSON.stringify(req.param.msg)
