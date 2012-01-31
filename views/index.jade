@@ -1,11 +1,10 @@
 h1= title
 p= gender
-- if (typeof(msg) != 'undefined')
-	p= msg
+p= messages
 div.board
 
 
 script
 	$(document).ready( function() {
-		var gender = #{gender}
+		var gender = "#{gender}"
 	});	
