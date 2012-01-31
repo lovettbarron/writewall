@@ -69,15 +69,18 @@ app.get('/male', function(req, res){
 });
 
 app.get('/male/:msg', function(req,res) {
-				var newMsg = new Msg();
-				newMsg.msg = JSON.parse( JSON.stringify( {
-									"gender" : 0
-									, "msg": JSON.stringify(req.param.msg)
-									, "sent" : new Date()
-							}));
-				newMsg.save( function(err) {
-					if(err) console.log("Error saving colour:" + err)
-				});		
+		var newMsg = new Msg();
+
+		newMsg.msg = JSON.parse( JSON.stringify( {
+				"gender" : 0
+				, "msg": JSON.stringify(req.param.msg)
+				, "sent" : new Date()
+			}));
+
+		newMsg.save( function(err) {
+			if(err) console.log("Error saving: " + err)
+			});		
+		
 		res.render('index', {
 			title:'You said this about a girl:'
 			, gender: 'male'
