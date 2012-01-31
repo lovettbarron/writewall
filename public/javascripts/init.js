@@ -19,4 +19,23 @@ socket.on('msg', function(data) {
 
 socket.on('success', function(data) {
     console.log(data);
+		$('#input').append('')
+  });
+
+
+$(document).ready( function(){
+    // when the client clicks SEND
+    $('#datasend').click( function() {
+      var message = $('#data').val();
+      $('#data').val('');
+      socket.emit('msg', message);
+    });
+
+    // when the client hits ENTER on their keyboard
+    $('#data').keypress(function(e) {
+      if(e.which == 13) {
+        $(this).blur();
+        $('#datasend').focus().click();
+      }
+    });
   });
