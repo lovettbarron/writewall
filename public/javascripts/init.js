@@ -13,7 +13,7 @@ socket.on('msg', function(data) {
     console.log(data);
     socket.emit('data', { 
 			msg: 'data'
-			, gender: gender;
+			, gender: gender
 		 });
   });	
 
