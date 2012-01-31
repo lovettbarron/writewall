@@ -127,7 +127,7 @@ io.sockets.on('connection', function (socket) {
 
 		socket.on('msg', function (data) {	
 			var newMsg = new Msg();
-			console.log("this!" + JSON.stringify(req.param.msg) );
+			console.log("this!" + JSON.stringify(data) );
 
 			newMsg.msg = JSON.parse( JSON.stringify( {
 					"gender" : "0"
