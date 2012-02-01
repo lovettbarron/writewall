@@ -19,12 +19,12 @@ socket.on('msg', function(data) {
 
 socket.on('success', function(data) {
     console.log(data);
-		$('#input').prepend('<p>' + data + '</p>')
+		$('#text').prepend('<p>' + data + '</p>')
   });
 
 socket.on('current', function(data) {
 	for( var key in data) {
-		$('#input').prepend('<p>' + data[key] + '</p>')
+		$('#text').prepend('<p>' + data[key] + '</p>')
 	}
 });
 
