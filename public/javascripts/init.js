@@ -22,8 +22,15 @@ socket.on('success', function(data) {
 		$('#input').append('<p>' + data + '</p>')
   });
 
+socket.on('current', function(data) {
+	for()
+});
+
 
 $(document).ready( function(){
+		
+		socket.emit('current',gender);
+	
     // when the client clicks SEND
     $('#datasend').click( function() {
       var message = $('#data').val();

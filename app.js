@@ -26,7 +26,7 @@ var Schema = mongoose.Schema
 //Female 1
 //Male 0
 var msgSchema = new Schema({
-    gender    : Number
+    gender : Number
 	, msg	: String
   , time : Date
 }), Msg;
@@ -91,20 +91,7 @@ app.get('/male/say', function(req,res) {
 	});
 
 app.get('/female', function(req, res){
-	var message = [];
-	var query = Msg.find( {'gender': '0' } );
-	 query.sort( 'sent', -1 )
-			.limit(25)
-			.exec(function(err,doc) {
-					if(err) console.log("Err retrieving:" + err)
-					if( doc !== undefined ) {
-						for( var key in doc){
-						if( doc.hasOwnProperty(key) ) {
-							message.push(doc[key].msg);
-							}
-						}
-					}
-	});
+				
   res.render('index', {
     title: 'writewall'
 		, gender: 'female'
@@ -141,8 +128,27 @@ io.sockets.on('connection', function (socket) {
 				});		
 			});
 				
+		socket.on('current', function(data) {
+			var message = [];
+			var query = Msg.find( {'gender': '0' } );
+			 query.sort( 'sent', -1 )
+					.limit(25)
+					.exec(function(err,doc) {
+							if(err) console.log("Err retrieving:" + err)
+							if( doc !== undefined ) {
+								for( var key in doc){
+								if( doc.hasOwnProperty(key) ) {
+									message.push(doc[key].msg);
+									}
+								}
+							}
+						});
+				});
+		
 
 	});
+
+	
 
 	
 		
