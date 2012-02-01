@@ -19,7 +19,7 @@ socket.on('msg', function(data) {
 
 socket.on('success', function(data) {
     console.log(data);
-		$('#input').append('')
+		$('#input').append('<p>' + data.msg + '</p>')
   });
 
 
