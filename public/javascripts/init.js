@@ -23,7 +23,9 @@ socket.on('success', function(data) {
   });
 
 socket.on('current', function(data) {
-	for()
+	for( var key in data) {
+		$('#input').append('<p>' + data[key] + '</p>')
+	}
 });
 
 
