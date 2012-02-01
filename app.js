@@ -116,11 +116,11 @@ io.sockets.on('connection', function (socket) {
 			var newMsg = new Msg();
 			console.log("this!" + JSON.stringify(data) );
 
-			newMsg.msg = JSON.parse( JSON.stringify( {
+			newMsg.msg = {
 					"gender" : "0"
 					, "msg": data.msg
 					, "sent" : new Date()
-				}));
+				};
 
 			newMsg.save( function(err) {
 				if(err) console.log("Error saving: " + err)
