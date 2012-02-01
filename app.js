@@ -131,7 +131,7 @@ io.sockets.on('connection', function (socket) {
 
 			newMsg.msg = JSON.parse( JSON.stringify( {
 					"gender" : "0"
-					, "msg": JSON.stringify(req.param.msg)
+					, "msg": data.msg
 					, "sent" : new Date()
 				}));
 
