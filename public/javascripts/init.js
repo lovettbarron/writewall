@@ -30,11 +30,26 @@ socket.on('current', function(data) {
 
 
 $(document).ready( function(){
+		$('#genderWall').hide();
 		socket.emit('current',gender);
+
+
+		$('#selMale').click({
+			gender = 'male'
+			$(this).hide();
+			$('#genderWall').show();
+		})
+
+
+
 	
     // when the client clicks SEND
     $('#datasend').click( function() {
-      var message = $('#data').val();
+			var mss = $('#data').val();
+      var message = {
+				'gender': gender
+				,'msg': mss
+	}
       $('#data').val('');
       socket.emit('msg', message);
     });

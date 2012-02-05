@@ -19,14 +19,15 @@ div.container
 		div.span12
 			h1 We are doing an experiment, could you help us out?
 			h2 Are you a:
-			div.row
-				//div.span4
-					//img(src="http://placehold.it/300x300")
-				//div.span4
-					//img(src="http://placehold.it/300x300")
-				//div.span4
-					//img(src="http://placehold.it/300x300")
-					
+			div#genderSelection.row
+				div#selMale.span4
+					img(src="http://placehold.it/300x300&text=Male")
+				div#selFemale.span4
+					img(src="http://placehold.it/300x300&text=Female")
+				div#selGq.span4
+					img(src="http://placehold.it/300x300&text=GQ")
+
+			div#genderWall
 				p You are a #{gender}
 
 				div#input
