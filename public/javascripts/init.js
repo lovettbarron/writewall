@@ -24,8 +24,7 @@ socket.on('current', function(data) {
 	console.log(data);
 	for( var key in data) {
 		var $addition = $('<li class="experience">' + data[key].msg + '</p>');
-		$('ul#text').prepend( $addition )
-			.masonry('prepended', $addition)
+		$('ul#text').prepend( $addition ).masonry('reload')
 	}
 });
 
