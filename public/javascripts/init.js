@@ -32,7 +32,7 @@ socket.on('current', function(data) {
 
 $(document).ready( function(){
 		//Bootstrap stuff
-		$('.pills a').tab('show')
+		$('.tabs a:first').tab('show')
 
 
 		//App stuff
