@@ -12,7 +12,8 @@ socket.on('disconnect', function() {
 socket.on('success', function(data) {
     console.log(data);
 		if(data.gender != gender ){
-			$('#text').prepend('<p>' + data.msg + '</p>')
+			var $addition = $('<li class="experience well">' + data.msg + '</li>');
+			$('ul#text').prepend( $addition ).masonry('reload');
 			}
   	});
 
