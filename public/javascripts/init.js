@@ -32,10 +32,10 @@ $(document).ready( function(){
 
 		$('#selMale').click( function() {
 			gender = 0;
-			question = question();
+			question = questions();
 			$('#genderSel').hide( function() {
 					$('#genderWall').show().delay(800, function() {
-						$('#genderWall').prepend('<h3>You are a man, ' + question() + '</h3>')
+						$('#genderWall').prepend('<h3>You are a man, ' + question + '</h3>')
 						socket.emit('current', { 'gender' : gender } );
 					});
 			});
@@ -83,7 +83,7 @@ $(document).ready( function(){
 
 
 
-function question() {
+function questions() {
 	var questions = [
 	'how does that make you feel?'
 	,'what did you see today?'
