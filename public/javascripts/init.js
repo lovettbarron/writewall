@@ -20,9 +20,9 @@ socket.on('msg', function(data) {
 socket.on('success', function(data) {
     console.log(data);
 		if(data.gender != gender ){
-		e$('#text').prepend('<p>' + data.msg + '</p>')
-		}
-  });
+			$('#text').prepend('<p>' + data.msg + '</p>')
+			}
+  	});
 
 socket.on('current', function(data) {
 	for( var key in data) {
