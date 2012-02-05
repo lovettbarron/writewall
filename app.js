@@ -25,7 +25,8 @@ var Schema = mongoose.Schema
 //Gender:
 //Female 1
 //Male 0
-var msgSchema = new Schema({
+var msgSchema = new Schema( 
+	'msg' : {
     gender : Number
 	, msg	: String
   , time : Date
@@ -117,16 +118,16 @@ io.sockets.on('connection', function (socket) {
 			console.log("this!" + JSON.stringify(data) );
 
 			newMsg.msg = {
-					"gender" : "0"
-					, "msg": data.msg
+					"gender" : 0
+					, "msg" : data.msg
 					, "sent" : new Date()
 				};
 
 			newMsg.save( function(err) {
 				if(err) console.log("Error saving: " + err)
 				socket.emit('success',data)
-				});		
-			});
+					});		
+				});
 				
 		socket.on('current', function(data) {
 			var message = [];
