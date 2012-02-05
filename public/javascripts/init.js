@@ -32,7 +32,7 @@ socket.on('current', function(data) {
 
 $(document).ready( function(){
 		//Bootstrap stuff
-		$('.tabs').tab('show');
+		$('.tabs a:first').tab('show');
 
 
 		//App stuff
@@ -104,7 +104,5 @@ function questions() {
 	,'do you think that was a choice?'
 	,'how do you think your parents felt?'
 	];
-	
-	
 	return questions[Math.floor(Math.random() * questions.length)];
 }
