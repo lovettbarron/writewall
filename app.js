@@ -133,11 +133,11 @@ io.sockets.on('connection', function (socket) {
 			
 			console.log('To pull: ' +  data.gender);
 			
-			if(data.gender = 0) {
+			if(data.gender == 0) {
 				selectGender = 1;
 			} else
-			if(data.gender = 1) {
-				selectGender = 0
+			if(data.gender == 1) {
+				selectGender = 0;
 			}
 			
 			console.log(data);
