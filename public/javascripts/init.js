@@ -20,7 +20,7 @@ socket.on('msg', function(data) {
 socket.on('success', function(data) {
     console.log(data);
 		if(data.gender != gender ){
-		$('#text').prepend('<p>' + data.msg + '</p>')
+		e$('#text').prepend('<p>' + data.msg + '</p>')
 		}
   });
 
@@ -35,15 +35,23 @@ $(document).ready( function(){
 		$('#genderWall').hide();
 		socket.emit('current',gender);
 
-
 		$('#selMale').click( function() {
-			gender = 'male';
+			gender = 0;
 			$('#genderSel').hide();
 			$('#genderWall').show();
 		});
 
+		$('#selFemale').click( function() {
+			gender = 1;
+			$('#genderSel').hide();
+			$('#genderWall').show();
+		});
 
-
+		$('#selGq').click( function() {
+			gender = 'more';
+			$('#genderSel').hide();
+			$('#genderWall').show();
+		});
 	
     // when the client clicks SEND
     $('#datasend').click( function() {
