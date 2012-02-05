@@ -43,7 +43,7 @@ $(document).ready( function(){
 
 		$('#selFemale').click( function() {
 			gender = 1;
-			question = question();
+			question = questions();
 			$('#genderSel').hide( function() {
 					$('#genderWall').show().delay(800, function() {
 						$('#genderWall').prepend('<h3>You are a woman, ' + question + '</h3>')
