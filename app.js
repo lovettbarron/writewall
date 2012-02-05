@@ -129,9 +129,18 @@ io.sockets.on('connection', function (socket) {
 				
 		socket.on('current', function(data) {
 			var message = [];
+			var selectGender;
+			
+			if(data.gender = 0) {
+				selectGender = 1;
+			} else
+			if(data.gender = 1) {
+				selectGender = 0
+			}
+			
 			console.log(data);
 			if(data.gender !== null) {
-				var query = Msg.find( {'msg.gender': data.gender } );
+				var query = Msg.find( {'msg.gender': selectGender } );
 				 query.sort( 'msg.time', -1 )
 						.limit(25)
 						.exec(function(err,doc) {
