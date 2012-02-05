@@ -21,9 +21,11 @@ socket.on('fail', function(data) {
   	});
 
 socket.on('current', function(data) {
-	console.log(data)
+	console.log(data);
 	for( var key in data) {
-		$('#text').prepend('<li class="experience">' + data[key].msg + '</p>')
+		var $addition = $('<li class="experience">' + data[key].msg + '</p>');
+		$('ul#text').prepend( $addition )
+			.masonry('prepended', $addition)
 	}
 });
 
@@ -31,10 +33,12 @@ socket.on('current', function(data) {
 $(document).ready( function(){
 		$('#genderWall').hide();
 
+
 		$('ul#text').masonry({
 		  itemSelector: '.experience',
 		  columnWidth: 100
 			});
+
 
 		$('#selMale').click( function() {
 			gender = 0;
