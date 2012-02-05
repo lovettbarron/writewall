@@ -1,4 +1,4 @@
-var gender;
+var gender, question;
 
 var socket = new io.connect('http://emote.me:3000');
 socket.on('connect', function() {
@@ -8,14 +8,6 @@ socket.on('connect', function() {
 socket.on('disconnect', function() {
 		console.log('disconnected');
 	});
-	
-socket.on('msg', function(data) {
-    console.log(data);
-    socket.emit('data', { 
-			msg: 'data'
-			, gender: gender
-		 });
-  });	
 
 socket.on('success', function(data) {
     console.log(data);
@@ -37,24 +29,28 @@ $(document).ready( function(){
 
 		$('#selMale').click( function() {
 			gender = 0;
+			question = question();
 			$('#genderSel').hide( function() {
 					$('#genderWall').show().delay(800, function() {
 						$('#genderWall').prepend('<h3>You are a man, ' + question() + '</h3>')
+						socket.emit('current', { 'gender' : gender } );
 					});
 			});
 		});
 
 		$('#selFemale').click( function() {
 			gender = 1;
+			question = question();
 			$('#genderSel').hide( function() {
 					$('#genderWall').show().delay(800, function() {
-						$('#genderWall').prepend('<h3>You are a woman, ' + question() + '</h3>')
+						$('#genderWall').prepend('<h3>You are a woman, ' + question + '</h3>')
 					});
 			});
 		});
 
 		$('#selGq').click( function() {
 			gender = 'more';
+			question = question();
 			$('#genderSel').hide();
 			$('#genderWall').show();
 		});
@@ -65,6 +61,7 @@ $(document).ready( function(){
       var message = {
 				'gender': gender
 				,'msg': mss
+				,'question' : question
 	}
       $('#data').val('');
 //      socket.emit('msg', message);

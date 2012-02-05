@@ -28,6 +28,7 @@ var msgSchema = new Schema({
 		'msg' : {
 	    gender : Number
 		, msg	: String
+		, question : String
 	  , time : Date
 	}}), Msg;
 
@@ -116,6 +117,7 @@ io.sockets.on('connection', function (socket) {
 			newMsg.msg = {
 					"gender" : data.gender
 					, "msg" : data.msg
+					, "question" : data.question
 					, "sent" : new Date()
 				};
 
@@ -127,7 +129,7 @@ io.sockets.on('connection', function (socket) {
 				
 		socket.on('current', function(data) {
 			var message = [];
-			var query = Msg.find( {'gender': '0' } );
+			var query = Msg.find( {'gender': data.gender } );
 			 query.sort( 'sent', -1 )
 					.limit(25)
 					.exec(function(err,doc) {
