@@ -46,8 +46,11 @@ $(document).ready( function(){
 
 		$('#selFemale').click( function() {
 			gender = 1;
-			$('#genderSel').hide();
-			$('#genderWall').show();
+			$('#genderSel').hide( function() {
+					$('#genderWall').show().delay(800, function() {
+						$('#genderWall').prepend('<h3>You are a woman, ' + question() + '</h3>')
+					});
+			});
 		});
 
 		$('#selGq').click( function() {
