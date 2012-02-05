@@ -23,8 +23,8 @@ socket.on('fail', function(data) {
 socket.on('current', function(data) {
 	console.log(data);
 	for( var key in data) {
-		var $addition = $('<li class="experience">' + data[key].msg + '</p>');
-		$('ul#text').prepend( $addition ).masonry('reload')
+		var $addition = $('<li class="experience unstyled">' + data[key].msg + '</li>');
+		$('ul#text').prepend( $addition ).masonry('reload');
 	}
 });
 
