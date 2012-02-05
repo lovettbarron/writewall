@@ -12,14 +12,14 @@ html
 		
 		script(src='/socket.io/socket.io.js')
 		script(type='text/javascript', src='/javascripts/jquery-1.7.1.min.js')
-		script(type='text/javascript', src='/javascripts/init.js')
+		//script(type='text/javascript', src='/javascripts/init.js')
 		script(type='text/javascript')
 			if ('standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi).test(navigator.platform) && (/Safari/i).test(navigator.appVersion)) {
 				document.write('<link rel="stylesheet" href="../../style/add2home.css">');
 				document.write('<script type="application/javascript" src="../../src/add2home.js"><\/s' + 'cript>');
 			}
 
-		link(href="bootstrap.css", rel="stylesheet")
+		link(href="stylesheets/bootstrap.css", rel="stylesheet")
 		style(type="text/css")
 			body {
 				overflow: hidden;
