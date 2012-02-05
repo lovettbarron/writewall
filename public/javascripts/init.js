@@ -31,8 +31,12 @@ socket.on('current', function(data) {
 
 
 $(document).ready( function(){
-		$('#genderWall').hide();
+		//Bootstrap stuff
+		$('#myTab').tab('show')
 
+
+		//App stuff
+		$('#genderWall').hide();
 
 		$('ul#text').masonry({
 		  itemSelector: '.experience',

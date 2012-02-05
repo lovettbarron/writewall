@@ -18,8 +18,8 @@ div.container
 	div#experiment.row
 		div.span12
 			h1 We are doing an experiment, could you help us out?
-			h2 Are you a:
 			div#genderSel.row
+				h2 Are you a:
 				div#selMale.span4
 					img(src="http://placehold.it/300x300&text=Male")
 				div#selFemale.span4
@@ -29,30 +29,38 @@ div.container
 
 			div#genderWall
 				div#input
-					input#data(type='text')
-					input#datasend(type='button', value='send')
+					ul.unstyled
+						li input#data(type='text')
+						li input#datasend(type='button', value='send')
 
 				ul#text.unstyled
 
 	div#designjam1.row
-		div.span3
+		div.span3.offset3
 			p We did a design jam on
-		div.span9
+		div.span9.offset3
 			h1 Gender and Education.
 	div.row	
 		div.span12
 			ul.nav.pills
 				li.active 
-					a(href="#") Summary
+					a(href="#dj1-sum", data-toggle="pill") Summary
 				li 
-					a(href="#") Problem
+					a(href="#dj1-prob", data-toggle="pill") Problem
 				li 
-					a(href="#") Process
+					a(href="#dj1-proc", data-toggle="pill") Process
 				li 
-					a(href="#") Outputs
-		div.row					
-			h2 Summary
-			p Summary
+					a(href="#dj1-out", data-toggle="pill") Outputs
+		div.row
+			div#dj1-sum.active
+				h2 Summary
+				p Summary
+			
+			div#dj1-prob
+
+			div#dj1-proc
+			
+			div#dj1-out			
 
 script(src="http://code.jquery.com/jquery-1.7.min.js")
 script(src="javascripts/bootstrap-transition.js")
