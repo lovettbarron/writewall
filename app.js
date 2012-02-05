@@ -152,10 +152,10 @@ io.sockets.on('connection', function (socket) {
 											message.push(doc[key].msg);
 											}
 										}
+										socket.emit('current',message);
 									}
 								});
-						} else { socket.emit('fail')  }
-						socket.emit('current',message);
+						} else { socket.emit('fail')  }	
 				});
 			});
 

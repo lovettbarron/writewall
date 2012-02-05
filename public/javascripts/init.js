@@ -23,7 +23,7 @@ socket.on('fail', function(data) {
 socket.on('current', function(data) {
 	console.log(data)
 	for( var key in data) {
-		$('#text').prepend('<p>' + data[key] + '</p>')
+		$('#text').prepend('<p>' + data[key].msg + '</p>')
 	}
 });
 
