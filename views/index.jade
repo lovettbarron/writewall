@@ -30,8 +30,10 @@ div.container
 			div#genderWall
 				div#input
 					ul.unstyled
-						li input#data(type='text')
-						li input#datasend(type='button', value='send')
+						li 
+							input#data(type='text')
+						li 
+							input#datasend(type='button', value='send')
 
 				ul#text.unstyled
 
@@ -42,7 +44,7 @@ div.container
 			h1 Gender and Education.
 	div.row	
 		div.span12
-			ul.nav.pills
+			ul#dj1-tab.nav.pills
 				li.active 
 					a(href="#dj1-sum", data-toggle="pill") Summary
 				li 
@@ -57,10 +59,16 @@ div.container
 				p Summary
 			
 			div#dj1-prob
+				h2 The Problem Statement
+				p Prob
 
 			div#dj1-proc
-			
+				h2 Our Process
+				p Proc
+
 			div#dj1-out			
+				h2 Our Output
+				p Out
 
 script(src="http://code.jquery.com/jquery-1.7.min.js")
 script(src="javascripts/bootstrap-transition.js")
