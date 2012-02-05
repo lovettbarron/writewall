@@ -34,11 +34,11 @@ $(document).ready( function(){
 		socket.emit('current',gender);
 
 
-		$('#selMale').click({
-			gender = 'male'
+		$('#selMale').click( function() {
+			gender = 'male';
 			$(this).hide();
 			$('#genderWall').show();
-		})
+		});
 
 
 
