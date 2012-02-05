@@ -30,7 +30,6 @@ socket.on('current', function(data) {
 
 
 $(document).ready( function(){
-		
 		socket.emit('current',gender);
 	
     // when the client clicks SEND
