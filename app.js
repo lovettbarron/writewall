@@ -131,7 +131,7 @@ io.sockets.on('connection', function (socket) {
 			var message = [];
 			console.log(data);
 			if(data.gender !== null) {
-				var query = Msg.find( {'gender': data.gender } );
+				var query = Msg.find( {'msg.gender': data.gender } );
 				 query.sort( 'msg.time', -1 )
 						.limit(25)
 						.exec(function(err,doc) {
