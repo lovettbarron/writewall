@@ -37,8 +37,11 @@ $(document).ready( function(){
 
 		$('#selMale').click( function() {
 			gender = 0;
-			$('#genderSel').hide();
-			$('#genderWall').show();
+			$('#genderSel').hide( function() {
+					$('#genderWall').show().delay(800, function() {
+						$('#genderWall').prepend('<h3>You are a man, ' + question() + '</h3>')
+					});
+			});
 		});
 
 		$('#selFemale').click( function() {
@@ -73,3 +76,17 @@ $(document).ready( function(){
       }
     });
   });
+
+
+
+function question() {
+	var questions = [
+	,{ 'how does that make you feel?' }
+	,{ 'what did you see today?' }
+	,{ 'do you think that was a choice?' }
+	,{ 'how do you think your parents felt?' }
+	];
+	
+	
+	return questions[Math.floor(Math.random() * questions.length)];
+}

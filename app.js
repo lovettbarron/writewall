@@ -57,7 +57,8 @@ app.configure('production', function(){
 
 app.get('/', function(req, res){
   res.render('index', {
-    title: 'writewall',
+    title: 'Super Secret Share & Sons',
+		gender: ''
   });
 });
 
