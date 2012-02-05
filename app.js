@@ -124,7 +124,7 @@ io.sockets.on('connection', function (socket) {
 
 			newMsg.save( function(err) {
 				if(err) console.log("Error saving: " + err)
-				socket.emit('success',data)
+				socket.broadcast.emit('success',data);
 					});		
 				});
 				
