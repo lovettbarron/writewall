@@ -24,12 +24,12 @@ var Schema = mongoose.Schema
 //Gender:
 //Female 1
 //Male 0
-var msgSchema = new Schema( 
-	'msg' : {
-    gender : Number
-	, msg	: String
-  , time : Date
-}), Msg;
+var msgSchema = new Schema({ 
+		'msg' : {
+	    gender : Number
+		, msg	: String
+	  , time : Date
+	}}), Msg;
 
 var Msg = mongoose.model('Msg', msgSchema,'message');
 
