@@ -81,10 +81,10 @@ $(document).ready( function(){
 
 function question() {
 	var questions = [
-	,{ 'how does that make you feel?' }
-	,{ 'what did you see today?' }
-	,{ 'do you think that was a choice?' }
-	,{ 'how do you think your parents felt?' }
+	'how does that make you feel?'
+	,'what did you see today?'
+	,'do you think that was a choice?'
+	,'how do you think your parents felt?'
 	];
 	
 	
