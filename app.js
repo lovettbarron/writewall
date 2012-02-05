@@ -6,7 +6,6 @@ var express = require('express'),
 		OAuth = require('oauth').OAuth,
 		io = require('socket.io'),
 //		connect = require('connect'), //Automatic in express I think?
-		winston = require('winston'),
  		util = require('util');
 
 var	mongoose = require('mongoose');
