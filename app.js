@@ -112,12 +112,12 @@ var io = io.listen(app);
 
 io.sockets.on('connection', function (socket) {
 
-		socket.on('msg', function (data) {	
+		socket.on('data', function (data) {	
 			var newMsg = new Msg();
 			console.log("this!" + JSON.stringify(data) );
 
 			newMsg.msg = {
-					"gender" : 0
+					"gender" : data.gender
 					, "msg" : data.msg
 					, "sent" : new Date()
 				};

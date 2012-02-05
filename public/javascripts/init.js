@@ -36,7 +36,7 @@ $(document).ready( function(){
 
 		$('#selMale').click( function() {
 			gender = 'male';
-			$(this).hide();
+			$('#genderSel').hide();
 			$('#genderWall').show();
 		});
 
@@ -51,8 +51,8 @@ $(document).ready( function(){
 				,'msg': mss
 	}
       $('#data').val('');
-      socket.emit('msg', message);
-    });
+//      socket.emit('msg', message);
+			socket.emit('data', message);
 
     // when the client hits ENTER on their keyboard
     $('#data').keypress(function(e) {
