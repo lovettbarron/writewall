@@ -129,7 +129,7 @@ io.sockets.on('connection', function (socket) {
 				
 		socket.on('current', function(data) {
 			var message = [];
-			if(data.gender !== undefined)
+			if(data.gender !== undefined) {
 				var query = Msg.find( {'gender': data.gender } );
 				 query.sort( 'sent', -1 )
 						.limit(25)
@@ -143,7 +143,7 @@ io.sockets.on('connection', function (socket) {
 									}
 								}
 							});
-						}
+						} else { socket.emit('fail')  }
 						socket.emit('current',message);
 				});
 		

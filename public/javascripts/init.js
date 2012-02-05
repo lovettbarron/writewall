@@ -16,6 +16,10 @@ socket.on('success', function(data) {
 			}
   	});
 
+socket.on('fail', function(data) {
+    console.log(data);
+  	});
+
 socket.on('current', function(data) {
 	for( var key in data) {
 		$('#text').prepend('<p>' + data[key] + '</p>')
