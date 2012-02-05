@@ -29,7 +29,6 @@ socket.on('current', function(data) {
 
 $(document).ready( function(){
 		$('#genderWall').hide();
-		socket.emit('current',gender);
 
 		$('#selMale').click( function() {
 			gender = 0;
