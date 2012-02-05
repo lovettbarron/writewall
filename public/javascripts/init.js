@@ -53,6 +53,7 @@ $(document).ready( function(){
       $('#data').val('');
 //      socket.emit('msg', message);
 			socket.emit('data', message);
+		});
 
     // when the client hits ENTER on their keyboard
     $('#data').keypress(function(e) {
