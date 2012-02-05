@@ -132,24 +132,22 @@ io.sockets.on('connection', function (socket) {
 			console.log(data);
 			if(data.gender !== null) {
 				var query = Msg.find( {'gender': data.gender } );
-				 query.sort( 'sent', -1 )
+				 query.sort( 'msg.time', -1 )
 						.limit(25)
 						.exec(function(err,doc) {
 								if(err) console.log("Err retrieving:" + err)
 								if( doc !== undefined ) {
 									for( var key in doc){
-									if( doc.hasOwnProperty(key) ) {
-										message.push(doc[key].msg);
+										if( doc.hasOwnProperty(key) ) {
+											message.push(doc[key].msg);
+											}
 										}
 									}
-								}
-							});
+								});
 						} else { socket.emit('fail')  }
 						socket.emit('current',message);
 				});
-		
-
-	});
+			});
 
 	
 
