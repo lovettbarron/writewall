@@ -129,19 +129,21 @@ io.sockets.on('connection', function (socket) {
 				
 		socket.on('current', function(data) {
 			var message = [];
-			var query = Msg.find( {'gender': data.gender } );
-			 query.sort( 'sent', -1 )
-					.limit(25)
-					.exec(function(err,doc) {
-							if(err) console.log("Err retrieving:" + err)
-							if( doc !== undefined ) {
-								for( var key in doc){
-								if( doc.hasOwnProperty(key) ) {
-									message.push(doc[key].msg);
+			if(data.gender !== undefined)
+				var query = Msg.find( {'gender': data.gender } );
+				 query.sort( 'sent', -1 )
+						.limit(25)
+						.exec(function(err,doc) {
+								if(err) console.log("Err retrieving:" + err)
+								if( doc !== undefined ) {
+									for( var key in doc){
+									if( doc.hasOwnProperty(key) ) {
+										message.push(doc[key].msg);
+										}
 									}
 								}
-							}
-						});
+							});
+						}
 						socket.emit('current',message);
 				});
 		

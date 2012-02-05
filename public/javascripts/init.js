@@ -44,6 +44,7 @@ $(document).ready( function(){
 			$('#genderSel').hide( function() {
 					$('#genderWall').show().delay(800, function() {
 						$('#genderWall').prepend('<h3>You are a woman, ' + question + '</h3>')
+						socket.emit('current', { 'gender' : gender } );
 					});
 			});
 		});
