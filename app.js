@@ -131,6 +131,8 @@ io.sockets.on('connection', function (socket) {
 			var message = [];
 			var selectGender;
 			
+			console.log(data.gender);
+			
 			if(data.gender = 0) {
 				selectGender = 1;
 			} else
