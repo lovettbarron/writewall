@@ -129,7 +129,8 @@ io.sockets.on('connection', function (socket) {
 				
 		socket.on('current', function(data) {
 			var message = [];
-			if(data.gender !== undefined) {
+			console.log(data);
+			if(data.gender !== null) {
 				var query = Msg.find( {'gender': data.gender } );
 				 query.sort( 'sent', -1 )
 						.limit(25)
