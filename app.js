@@ -139,6 +139,7 @@ io.sockets.on('connection', function (socket) {
 								if( doc !== undefined ) {
 									for( var key in doc){
 										if( doc.hasOwnProperty(key) ) {
+											console.log(doc[key].msg);
 											message.push(doc[key].msg);
 											}
 										}
