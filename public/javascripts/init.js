@@ -23,13 +23,18 @@ socket.on('fail', function(data) {
 socket.on('current', function(data) {
 	console.log(data)
 	for( var key in data) {
-		$('#text').prepend('<p>' + data[key].msg + '</p>')
+		$('#text').prepend('<li class="experience">' + data[key].msg + '</p>')
 	}
 });
 
 
 $(document).ready( function(){
 		$('#genderWall').hide();
+
+		$('ul#text').masonry({
+		  itemSelector: '.experience',
+		  columnWidth: 100
+			});
 
 		$('#selMale').click( function() {
 			gender = 0;
